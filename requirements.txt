@@ -1,0 +1,16 @@
+# ============================================================
+#  requirements.txt — Dependensi Python untuk proyek ISPLA
+# ============================================================
+
+# Web automation
+selenium>=4.18.0
+
+# WebDriver manager (otomatis unduh chromedriver yang cocok)
+webdriver-manager>=4.0.2
+
+# Data processing
+pandas>=2.1.0
+openpyxl>=3.1.2
+
+# Environment variable management
+python-dotenv>=1.0.0
