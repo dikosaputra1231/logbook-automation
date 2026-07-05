@@ -6,7 +6,7 @@ Dengan menggunakan ISPLA, Anda hanya perlu merapikan data kegiatan Anda di dalam
 
 ##  Fitur Utama
 - **Automasi Pengisian Form:** Otomatis mengisi tanggal, jam, jenis kegiatan, tipe penyelenggaraan, lokasi, dan keterangan.
-- **Auto Upload Bukti:** Mendukung pengunggahan file bukti/dokumentasi (gambar/PDF) yang sesuai dengan kegiatan.
+- **Auto Upload Bukti:** Mendukung pengunggahan file bukti/dokumentasi (gambar/jpg/jpeg) yang sesuai dengan kegiatan.
 - **Manual Login:** Skrip akan membuka browser dan mempersilakan Anda login menggunakan SSO IPB dengan aman, setelah itu skrip akan mengambil alih untuk pengisian form.
 - **Filter Baris (CLI):** Anda bisa memilih untuk hanya memproses baris tertentu di CSV atau melanjutkan dari baris yang terputus.
 
@@ -67,7 +67,7 @@ Pastikan header/nama kolom di baris pertama **sama persis** dengan ketentuan ber
 - `keterangan`: Rangkuman/deskripsi aktivitas.
 - `doc_path`: (Opsional) Nama file foto/bukti. Harus berada di folder yang sama (`data logbook`). Biarkan kosong jika tidak ada bukti.
 
-*(Lihat contoh file CSV yang ada di folder data logbook jika Anda bingung).*
+*(Lihat contoh file excel yang ada di folder data logbook jika Anda bingung).*
 
 ---
 
