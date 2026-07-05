@@ -27,7 +27,7 @@ from config import (
 )
 from logger_setup import logger
 from data_parser import load_records
-
+from auth_module import login
 from form_handler import navigate_to_logbook, submit_record
 
 

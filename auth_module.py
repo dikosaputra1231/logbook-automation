@@ -23,14 +23,12 @@ from selenium.common.exceptions import (
 from config import (
     LOGIN_URL,
     PORTAL_BASE_URL,
+    IPB_USERNAME,
+    IPB_PASSWORD,
     WAIT_TIMEOUT,
     SELECTORS,
 )
 from logger_setup import logger
-
-import os
-IPB_USERNAME = os.getenv("IPB_USERNAME", "")
-IPB_PASSWORD = os.getenv("IPB_PASSWORD", "")
 
 
 # ===========================================================

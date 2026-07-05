@@ -32,9 +32,15 @@ CSV_FILE = Path(_csv_file_env) if Path(_csv_file_env).is_absolute() else DOCS_FO
 # File log output
 LOG_FILE = PROJECT_ROOT / "automation.log"
 
+# ===========================================================
+# SECTION 2: KREDENSIAL
+# ===========================================================
+
+IPB_USERNAME = os.getenv("IPB_USERNAME", "")
+IPB_PASSWORD = os.getenv("IPB_PASSWORD", "")
 
 # ===========================================================
-# SECTION 2:URL Portal
+# SECTION 3: URL PORTAL
 # ===========================================================
 
 PORTAL_BASE_URL = os.getenv("PORTAL_URL", "https://studentportal.ipb.ac.id")
@@ -46,7 +52,7 @@ LOGIN_URL = f"{PORTAL_BASE_URL}/Account/Login"
 LOGBOOK_URL = os.getenv("LOGBOOK_URL", f"{PORTAL_BASE_URL}/Kegiatan/LogAktivitasKampusMerdeka")
 
 # ===========================================================
-# SECTION 3: Pengaturan Browser
+# SECTION 4: PENGATURAN BROWSER
 # ===========================================================
 
 # True = browser berjalan di background (tanpa tampilan)
@@ -56,12 +62,12 @@ HEADLESS = os.getenv("HEADLESS", "false").lower() == "true"
 WAIT_TIMEOUT = int(os.getenv("WAIT_TIMEOUT", "20"))
 
 # ===========================================================
-# SECTION 4: MAPPING DATA CSV → FORM PORTAL
+# SECTION 5: MAPPING DATA CSV → FORM PORTAL
 # ===========================================================
 
 # --- Jenis Kegiatan ---
 # Kunci = nilai di kolom CSV, Nilai = teks opsi di dropdown portal
-# PERLU DIKONFIRMASI: Sesuaikan dengan opsi dropdown aktual
+# ⚠️  PERLU DIKONFIRMASI: Sesuaikan dengan opsi dropdown aktual
 JENIS_KEGIATAN_MAP = {
     "1": "Berita Acara Pembimbingan (Konsultasi/Mentoring/Coaching)",
     "2": "Berita Acara Ujian",
@@ -78,7 +84,7 @@ TIPE_PENYELENGGARAAN_MAP = {
 }
 
 # ===========================================================
-# SECTION 5: PENGATURAN FORM
+# SECTION 6: PENGATURAN FORM
 # ===========================================================
 
 # Apakah checkbox "Dosen Penggerak" selalu dicentang?
@@ -91,7 +97,7 @@ DATE_FORMAT_OUTPUT = "%d/%m/%Y"
 TIME_FORMAT_OUTPUT = "%H:%M"
 
 # ===========================================================
-# SECTION 6: SELECTOR HTML (CSS/XPath)
+# SECTION 7: SELECTOR HTML (CSS/XPath)
 # ===========================================================
 
 SELECTORS = {
@@ -146,7 +152,10 @@ def validate_config() -> list[str]:
     """
     errors = []
 
-    # Username & Password validation removed since login is currently handled manually in main.py
+    if not IPB_USERNAME:
+        errors.append("IPB_USERNAME belum diisi di file .env")
+    if not IPB_PASSWORD:
+        errors.append("IPB_PASSWORD belum diisi di file .env")
     if not DOCS_FOLDER.exists():
         errors.append(f"Folder dokumentasi tidak ditemukan: {DOCS_FOLDER}")
     if not CSV_FILE.exists():
